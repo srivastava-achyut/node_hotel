@@ -1,15 +1,15 @@
+require('dotenv').config();
+
 const mongoose = require('mongoose');
 
-// mongodb connection url
-const mongoURL = 'mongodb://127.0.0.1:27017/hotels';
+const mongoURL = process.env.MONGO_URL;
 
 mongoose.connect(mongoURL);
 
-// default connection
 const db = mongoose.connection;
 
 db.on('connected', () => {
-  console.log('Connected to mongodb server');
+  console.log('Connected to MongoDB server');
 });
 
 db.on('error', (err) => {

@@ -16,7 +16,7 @@ const app=express();
 const db=require('./db')
 const bodyParser=require('body-parser')
 app.use(bodyParser.json());  //req.body
-
+require('dotenv').config();
 
 const Person=require('./modules/Person')
 const Menu=require('./modules/Menu')
@@ -99,8 +99,8 @@ const menuRoutes=require('./routes/menuRoutes')
 
 app.use('/person',personRoutes)
 app.use('/menu',menuRoutes)
-
-app.listen(5050,()=>{
+const PORT=process.env.PORT|| 5050
+app.listen(PORT,()=>{
     console.log('server is listening on port 5050')
 })
 

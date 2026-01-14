@@ -30,7 +30,7 @@ app.get('/',authorize,(req,res)=>{
 const personRoutes=require('./routes/personRoutes')
 const menuRoutes=require('./routes/menuRoutes')
 
-app.use('/person',authorize,personRoutes)
+app.use('/person',personRoutes)
 app.use('/menu',authorize,menuRoutes)
 const PORT=process.env.PORT|| 5050
 app.listen(PORT,()=>{
